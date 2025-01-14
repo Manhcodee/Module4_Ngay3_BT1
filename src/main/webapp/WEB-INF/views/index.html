@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+<meta charset="UTF-8">
 <head th:replace="/layout :: head">
   <title>ListProducts</title>
 </head>
@@ -16,6 +17,11 @@
     Add new customer
   </a>
 </p>
+
+<form action="/products/search" method="get">
+  <input type="text" name="name" placeholder="Nhập tên sản phẩm" th:value="${searchQuery}" />
+  <button type="submit">Tìm kiếm</button>
+</form>
 
 <table id = "products">
   <thead>

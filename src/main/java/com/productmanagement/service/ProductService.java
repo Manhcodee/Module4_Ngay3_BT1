@@ -45,11 +45,13 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void search(String name) {
+    public List<Product> search(String name) {
+        List<Product> result = new ArrayList<>();
         for (Product product : products.values()) {
-            if (product.getName().equals(name)) {
-                System.out.println(product);
+            if (product.getName().toLowerCase().contains(name.toLowerCase())) {
+                result.add(product);
             }
         }
+        return result;
     }
 }
